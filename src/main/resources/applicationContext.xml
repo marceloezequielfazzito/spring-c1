@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.eduit.repository.Connection" name="connection">
+        <constructor-arg value="jdbc://mysql//ip/base"/>
+    </bean>
+
+    <bean class="com.eduit.repository.ItemRepository" name="itemRepository">
+        <constructor-arg ref="connection"/>
+    </bean>
+
+    <bean class="com.eduit.service.ItemService" name="itemService">
+        <constructor-arg ref="itemRepository"/>
+    </bean>
+
+
+</beans>
